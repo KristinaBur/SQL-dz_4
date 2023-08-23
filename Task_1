@@ -1,4 +1,18 @@
+- Подсчитать общее количество лайков, которые получили пользователи младше 12 лет:
+
 select count(*) as "Кол-во лайков" from likes
 JOIN
 profiles  as p 
 WHERE p.user_id = likes.user_id AND TIMESTAMPDIFF(YEAR, p.birthday, NOW()) < 12
+
+
+- Определить кто больше поставил лайков (всего): мужчины или женщины:
+
+select case (gender)
+    when 'm' then 'мужчин'
+	when 'f' then 'женщин'
+    end as 'кого больше', count(*) as 'лайков'
+from profiles p
+join likes l
+where l.user_id = p.user_id group by gender limit 1;
+
