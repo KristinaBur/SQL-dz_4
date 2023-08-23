@@ -10,7 +10,7 @@ WHERE TIMESTAMPDIFF(YEAR, p.birthday, CURDATE()) < 12;
 
 select case (gender)
     when 'm' then 'мужчин'
-	when 'f' then 'женщин'
+    when 'f' then 'женщин'
     end as 'кого больше', count(*) as 'лайков'
 from profiles p
 join likes l
