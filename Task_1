@@ -1,0 +1,4 @@
+select count(*) as "Кол-во лайков" from likes
+JOIN
+profiles  as p 
+WHERE p.user_id = likes.user_id AND TIMESTAMPDIFF(YEAR, p.birthday, NOW()) < 12
